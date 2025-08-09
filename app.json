@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "miniyou-app",
-    "slug": "miniyou-app",
+    "name": "MiniYouApp",
+    "slug": "miniyouapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,20 +10,39 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#AF52DE"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.miniyouapp.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "MiniYou needs access to your camera to take photos for creating your mini avatar.",
+        "NSPhotoLibraryUsageDescription": "MiniYou needs access to your photo library to select photos for creating your mini avatar.",
+        "NSPhotoLibraryAddUsageDescription": "MiniYou needs permission to save generated images to your photo library."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#AF52DE"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.miniyouapp.app",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "MiniYou needs access to your photo library to select photos for creating your mini avatar.",
+          "cameraPermission": "MiniYou needs access to your camera to take photos for creating your mini avatar."
+        }
+      ]
+    ]
   }
 }
